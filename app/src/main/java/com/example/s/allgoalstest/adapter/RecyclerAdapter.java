@@ -1,4 +1,4 @@
-package com.example.s.allgoalstest.adapters;
+package com.example.s.allgoalstest.adapter;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -54,7 +54,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
             super(itemView);
             view = itemView;
             //   ButterKnife.bind(this, view);
-            textView = itemView.findViewById(R.id.text_view);
+            textView = itemView.findViewById(R.id.title_league);
 //            firstName = itemView.findViewById(R.id.first_name);
 
         }

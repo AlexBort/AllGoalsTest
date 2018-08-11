@@ -1,8 +1,13 @@
 package com.example.s.allgoalstest.pojo;
 
+import android.annotation.SuppressLint;
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.List;
 
-public class Events {
+@SuppressLint("ParcelCreator")
+public class Events implements Parcelable {
 
 
     private String id;
@@ -33,4 +38,13 @@ public class Events {
     }
 
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+
+    }
 }

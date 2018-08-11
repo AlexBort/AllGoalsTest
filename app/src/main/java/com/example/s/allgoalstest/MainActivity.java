@@ -7,7 +7,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.widget.TextView;
 
-import com.example.s.allgoalstest.adapters.RecyclerAdapter;
+import com.example.s.allgoalstest.adapter.RecyclerAdapter;
 import com.example.s.allgoalstest.presenter.MainPresenterImpl;
 
 import butterknife.BindView;
@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity implements Mvp.MainView {
     private RecyclerAdapter adapter;
     private MainPresenterImpl mainPresenter;
 
-    @BindView(R.id.text_view)
+    @BindView(R.id.title_main)
     TextView textView;
 
     @Override
