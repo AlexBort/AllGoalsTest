@@ -7,13 +7,14 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
-import android.widget.TextView;
 
+import com.example.s.allgoalstest.adapter.ItemGroup;
 import com.example.s.allgoalstest.adapter.ExpandableRecyclerAdapter;
 import com.example.s.allgoalstest.adapter.RecyclerAdapter;
 import com.example.s.allgoalstest.pojo.League;
 import com.example.s.allgoalstest.presenter.MainPresenterImpl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -29,8 +30,8 @@ public class MainActivity extends AppCompatActivity implements Mvp.MainView {
     private RecyclerAdapter adapter;
     private MainPresenterImpl mainPresenter;
 
-    @BindView(R.id.title_main)
-    TextView textView;
+//    @BindView(R.id.title_main)
+//    TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,12 +73,12 @@ public class MainActivity extends AppCompatActivity implements Mvp.MainView {
 
     @Override
     public void showDataInTextView(String str) {
-        textView.setText(str);
+//        textView.setText(str);
     }
 
     @Override
-    public void viewListLeague(List<League> leagues) {
-        ExpandableRecyclerAdapter adapter = new ExpandableRecyclerAdapter(leagues);
+    public void viewListLeague(List<ItemGroup> itemGroups) {
+        ExpandableRecyclerAdapter adapter = new ExpandableRecyclerAdapter(itemGroups);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
 
         recyclerView.setLayoutManager(layoutManager);

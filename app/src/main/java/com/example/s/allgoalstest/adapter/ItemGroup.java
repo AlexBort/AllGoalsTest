@@ -7,12 +7,11 @@ import com.thoughtbot.expandablerecyclerview.models.ExpandableGroup;
 
 import java.util.List;
 
-public class CustomGroup extends ExpandableGroup<Events> {
+public class ItemGroup extends ExpandableGroup<Events> {
 
-    public CustomGroup(String titleLeague,
-                       List<Events> events/*, List<Participants> participants*/) {
+    public ItemGroup(String titleLeague,
+                     List<Events> events/*, List<Participants> participants*/) {
         super(titleLeague, events/*, participants*/);
-
-
     }
+
 }

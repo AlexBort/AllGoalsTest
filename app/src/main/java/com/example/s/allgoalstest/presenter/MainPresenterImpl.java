@@ -3,9 +3,11 @@ package com.example.s.allgoalstest.presenter;
 import android.util.Log;
 
 import com.example.s.allgoalstest.Mvp;
+import com.example.s.allgoalstest.adapter.ItemGroup;
 import com.example.s.allgoalstest.pojo.League;
 import com.example.s.allgoalstest.repository.MainRepositoryImpl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MainPresenterImpl implements Mvp.MainPresenter {
@@ -39,8 +41,9 @@ public class MainPresenterImpl implements Mvp.MainPresenter {
 
     @Override
     public void presentLeagueList() {
-        List<League> leagues = repository.getLeagueList();
-        mainView.viewListLeague(leagues);
+        List<ItemGroup> listItems = repository.getItemGroup();
+
+        mainView.viewListLeague(listItems);
 //        for (int i = 0; i < leagues.size(); i++) {
 //            // Log.e(TAG, "presentLeagueList: checkLeague name: " + leagues.get(i).getName());
 //            for (int j = 0; j < leagues.get(i).getEventsList().size(); j++) {

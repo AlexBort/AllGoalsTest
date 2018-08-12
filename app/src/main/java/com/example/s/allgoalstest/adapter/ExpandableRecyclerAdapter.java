@@ -6,6 +6,7 @@ import android.view.ViewGroup;
 
 import com.example.s.allgoalstest.R;
 import com.example.s.allgoalstest.pojo.Events;
+import com.example.s.allgoalstest.pojo.League;
 import com.thoughtbot.expandablerecyclerview.ExpandableRecyclerViewAdapter;
 import com.thoughtbot.expandablerecyclerview.models.ExpandableGroup;
 
@@ -16,6 +17,7 @@ public class ExpandableRecyclerAdapter extends ExpandableRecyclerViewAdapter<Lea
     public ExpandableRecyclerAdapter(List<? extends ExpandableGroup> groups) {
         super(groups);
     }
+
 
     @Override
     public LeagueViewHolder onCreateGroupViewHolder(ViewGroup parent, int viewType) {
