@@ -1,5 +1,6 @@
 package com.example.s.allgoalstest.adapter;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,15 +15,18 @@ import java.util.List;
 
 public class ExpandableRecyclerAdapter extends ExpandableRecyclerViewAdapter<LeagueViewHolder, EventViewHolder> {
 
-    public ExpandableRecyclerAdapter(List<? extends ExpandableGroup> groups) {
+    private Context context;
+
+    public ExpandableRecyclerAdapter(Context context, List<? extends ExpandableGroup> groups) {
         super(groups);
+        this.context = context;
     }
 
 
     @Override
     public LeagueViewHolder onCreateGroupViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_league, parent, false);
-        return new LeagueViewHolder(view);
+        return new LeagueViewHolder(view, context);
     }
 
     @Override

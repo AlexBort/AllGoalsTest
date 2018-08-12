@@ -1,5 +1,7 @@
 package com.example.s.allgoalstest.adapter;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -13,11 +15,15 @@ public class LeagueViewHolder extends GroupViewHolder {
 
     private TextView leagueTitle;
     private ImageView imageLeague;
+    private ImageView imageArrow;
+    private Context context;
 
-    public LeagueViewHolder(View itemView) {
+    public LeagueViewHolder(View itemView, Context context) {
         super(itemView);
+        this.context = context;
         leagueTitle = itemView.findViewById(R.id.title_league); // TODO: 12.08.2018 поиграться еще с layout-ами
         imageLeague = itemView.findViewById(R.id.image_league);
+        imageArrow = itemView.findViewById(R.id.image_arrow);
     }
 
     public void setLeagueTitle(ExpandableGroup group) {
@@ -25,13 +31,18 @@ public class LeagueViewHolder extends GroupViewHolder {
         leagueTitle.setText(group.getTitle());
     }
 
-//    @Override
-//    public void expand() {
-//        super.expand();
-//    }
-//
-//    @Override
-//    public void collapse() {
-//        super.collapse();
-//    }
+
+    // TODO: 12.08.2018 я поменял порядок сеттинга стрелочек!!
+    @Override
+    public void expand() {
+     //   imageArrow.setBackground(context.getResources().getDrawable(R.drawable.ic_arrow_down));
+        imageArrow.setBackground(context.getResources().getDrawable(R.drawable.ic_arrow_up));
+    }
+
+
+    @Override
+    public void collapse() {
+   //     imageArrow.setBackground(context.getResources().getDrawable(R.drawable.ic_arrow_up));
+        imageArrow.setBackground(context.getResources().getDrawable(R.drawable.ic_arrow_down));
+    }
 }

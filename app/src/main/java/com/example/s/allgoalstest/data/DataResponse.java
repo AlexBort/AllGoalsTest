@@ -1,4 +1,4 @@
-package com.example.s.allgoalstest.api;
+package com.example.s.allgoalstest.data;
 
 import com.example.s.allgoalstest.pojo.League;
 

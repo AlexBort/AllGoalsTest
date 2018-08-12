@@ -10,7 +10,6 @@ import android.view.Menu;
 
 import com.example.s.allgoalstest.adapter.ExpandableItemGroup;
 import com.example.s.allgoalstest.adapter.ExpandableRecyclerAdapter;
-import com.example.s.allgoalstest.adapter.RecyclerAdapter;
 import com.example.s.allgoalstest.presenter.MainPresenterImpl;
 
 import java.util.List;
@@ -58,10 +57,7 @@ public class MainActivity extends AppCompatActivity implements Mvp.MainView {
 
     @Override
     public void showDataInTextView() {
-        //        adapter = new RecyclerAdapter();
-//        final LinearLayoutManager mLinearLayoutManager = new LinearLayoutManager(MainActivity.this);
-//        recyclerView.setLayoutManager(mLinearLayoutManager);
-//        recyclerView.setAdapter(adapter);
+
     }
 
     @Override
@@ -76,7 +72,7 @@ public class MainActivity extends AppCompatActivity implements Mvp.MainView {
 
     @Override
     public void viewListLeague(List<ExpandableItemGroup> expandableItemGroups) {
-        adapter = new ExpandableRecyclerAdapter(expandableItemGroups);
+        adapter = new ExpandableRecyclerAdapter(this, expandableItemGroups);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
 
         recyclerView.setLayoutManager(layoutManager);
@@ -94,7 +90,6 @@ public class MainActivity extends AppCompatActivity implements Mvp.MainView {
         super.onSaveInstanceState(outState);
         adapter.onSaveInstanceState(outState);
     }
-} // MainActivity end
-
+}
 
 

@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">AllGoalsTest</string>
+    <string name="dots"> : </string>
 </resources>

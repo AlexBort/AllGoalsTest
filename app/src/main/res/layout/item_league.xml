@@ -7,18 +7,28 @@
         android:id="@+id/image_league"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:layout_marginTop="15dp" />
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true" />
+    <!-- android:layout_alignBottom="@+id/title_league"
+        android:layout_alignTop="@+id/title_league"-->
 
     <TextView
         android:id="@+id/title_league"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="3dp"
         android:layout_marginTop="15dp"
-        android:layout_toRightOf="@+id/image_league" />
+        android:layout_toRightOf="@+id/image_league"
+        android:textColor="@color/black" />
+
+    <ImageView
+        android:id="@+id/image_arrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:background="@drawable/ic_arrow_down" />
 
 
 </RelativeLayout>

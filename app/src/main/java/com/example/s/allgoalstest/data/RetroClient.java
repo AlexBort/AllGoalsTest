@@ -1,4 +1,4 @@
-package com.example.s.allgoalstest.api;
+package com.example.s.allgoalstest.data;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;

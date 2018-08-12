@@ -1,10 +1,10 @@
-package com.example.s.allgoalstest.repository;
+package com.example.s.allgoalstest.data;
 
 import android.util.Log;
 
 import com.example.s.allgoalstest.Mvp;
 import com.example.s.allgoalstest.adapter.ExpandableItemGroup;
-import com.example.s.allgoalstest.api.DownloadDataTask;
+import com.example.s.allgoalstest.data.DownloadDataTask;
 import com.example.s.allgoalstest.pojo.Events;
 import com.example.s.allgoalstest.pojo.League;
 import com.example.s.allgoalstest.pojo.Participants;
@@ -18,7 +18,7 @@ import java.util.List;
 
 public class MainRepositoryImpl implements Mvp.MainRepository {
 
-    List<League> leagueList;
+
     private static final String TAG = "MainRepositoryImpl";
 
     // prepared JSON!

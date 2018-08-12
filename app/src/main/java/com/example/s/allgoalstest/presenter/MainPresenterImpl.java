@@ -5,7 +5,7 @@ import android.util.Log;
 import com.example.s.allgoalstest.Mvp;
 import com.example.s.allgoalstest.adapter.ExpandableItemGroup;
 import com.example.s.allgoalstest.pojo.League;
-import com.example.s.allgoalstest.repository.MainRepositoryImpl;
+import com.example.s.allgoalstest.data.MainRepositoryImpl;
 
 import java.util.List;
 
