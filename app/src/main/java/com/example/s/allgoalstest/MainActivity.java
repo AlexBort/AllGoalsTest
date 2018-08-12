@@ -37,21 +37,11 @@ public class MainActivity extends AppCompatActivity implements Mvp.MainView {
         ButterKnife.bind(this);
 
         setSupportActionBar(toolbar);
-        toolbar.setTitle("Все");
         toolbar.setTitleTextColor(getResources().getColor(R.color.white));
         toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.ic_menu));
 
         mainPresenter = new MainPresenterImpl(this);
         mainPresenter.presentLeagueList();
-
-    }
-
-    public static void setupContentViewPadding(Activity activity, boolean top, int margin) {
-        View view = ((ViewGroup) activity.getWindow().getDecorView().findViewById(android.R.id.content)).getChildAt(0);
-        if (top)
-            view.setPadding(view.getPaddingLeft(), margin, view.getPaddingRight(), view.getPaddingBottom());
-        else
-            view.setPadding(view.getPaddingLeft(), view.getPaddingTop(), view.getPaddingRight(), margin);
     }
 
     @Override
