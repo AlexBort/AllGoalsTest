@@ -9,6 +9,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 
 import com.example.s.allgoalstest.adapter.ExpandableItemGroup;
 import com.example.s.allgoalstest.adapter.ExpandableRecyclerAdapter;
@@ -22,13 +23,18 @@ import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity implements Mvp.MainView {
 
+
     private static final String TAG = "MainActivity";
+    @BindView(R.id.progress)
+    ProgressBar progressBar;
     @BindView(R.id.toolbar)
     Toolbar toolbar;
     @BindView(R.id.recycler_view)
     RecyclerView recyclerView;
+
     private ExpandableRecyclerAdapter adapter;
     private MainPresenterImpl mainPresenter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,11 +58,22 @@ public class MainActivity extends AppCompatActivity implements Mvp.MainView {
 
     @Override
     public void showListLeague(List<ExpandableItemGroup> expandableItemGroups) {
+
         adapter = new ExpandableRecyclerAdapter(this, expandableItemGroups);
         adapter.expandGroups();
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
+    }
+
+    @Override
+    public void startProgress() {
+        progressBar.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void stopProgress() {
+        progressBar.setVisibility(View.GONE);
     }
 
     @Override

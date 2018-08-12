@@ -45,6 +45,17 @@ public class ExpandableRecyclerAdapter extends ExpandableRecyclerViewAdapter<Lea
         holder.setLeagueTitle(group);
     }
 
+    @Override
+    public boolean onGroupClick(int flatPosition){
+
+        return super.onGroupClick(flatPosition);
+    }
+
+//    // Return the size of your dataset (invoked by the layout manager)
+//    @Override
+//    public int getItemCount() {
+//        return mDataset.size();
+//    }
 
     public void expandGroups() {
         for (int i = this.getGroups().size() - 1; i >= 0; i--) {
