@@ -10,6 +10,7 @@ import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 
 import com.example.s.allgoalstest.adapter.ExpandableItemGroup;
 import com.example.s.allgoalstest.adapter.ExpandableRecyclerAdapter;
@@ -30,7 +31,8 @@ public class MainActivity extends AppCompatActivity implements Mvp.MainView {
     Toolbar toolbar;
     @BindView(R.id.recycler_view)
     RecyclerView recyclerView;
-
+    @BindView(R.id.relative)
+    RelativeLayout layout;
     private ExpandableRecyclerAdapter adapter;
     private MainPresenterImpl mainPresenter;
 
@@ -45,8 +47,8 @@ public class MainActivity extends AppCompatActivity implements Mvp.MainView {
         toolbar.setTitleTextColor(getResources().getColor(R.color.white));
         toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.ic_menu));
 
-        mainPresenter = new MainPresenterImpl(this);
-        mainPresenter.presentLeagueList();
+        mainPresenter = new MainPresenterImpl(this, this);
+        mainPresenter.presentLeagueList(layout);
     }
 
     @Override

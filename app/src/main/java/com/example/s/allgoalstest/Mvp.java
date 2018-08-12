@@ -1,5 +1,7 @@
 package com.example.s.allgoalstest;
 
+import android.view.View;
+
 import com.example.s.allgoalstest.adapter.ExpandableItemGroup;
 import com.example.s.allgoalstest.pojo.League;
 
@@ -18,6 +20,6 @@ public interface Mvp {
     }
 
     interface MainPresenter {
-        void presentLeagueList();
+        void presentLeagueList(View rootView);
     }
 }
