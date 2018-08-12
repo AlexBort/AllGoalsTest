@@ -1,15 +1,22 @@
 package com.example.s.allgoalstest;
 
+import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
+import android.view.View;
+import android.view.ViewGroup;
+
 import com.example.s.allgoalstest.adapter.ExpandableItemGroup;
 import com.example.s.allgoalstest.adapter.ExpandableRecyclerAdapter;
 import com.example.s.allgoalstest.presenter.MainPresenterImpl;
+
+
 import java.util.List;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -39,6 +46,14 @@ public class MainActivity extends AppCompatActivity implements Mvp.MainView {
 
     }
 
+    public static void setupContentViewPadding(Activity activity, boolean top, int margin) {
+        View view = ((ViewGroup) activity.getWindow().getDecorView().findViewById(android.R.id.content)).getChildAt(0);
+        if (top)
+            view.setPadding(view.getPaddingLeft(), margin, view.getPaddingRight(), view.getPaddingBottom());
+        else
+            view.setPadding(view.getPaddingLeft(), view.getPaddingTop(), view.getPaddingRight(), margin);
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu, menu);
@@ -48,6 +63,7 @@ public class MainActivity extends AppCompatActivity implements Mvp.MainView {
     @Override
     public void showListLeague(List<ExpandableItemGroup> expandableItemGroups) {
         adapter = new ExpandableRecyclerAdapter(this, expandableItemGroups);
+        adapter.expandGroups();
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
@@ -58,6 +74,7 @@ public class MainActivity extends AppCompatActivity implements Mvp.MainView {
         super.onRestoreInstanceState(savedInstanceState);
         adapter.onRestoreInstanceState(savedInstanceState);
     }
+
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {

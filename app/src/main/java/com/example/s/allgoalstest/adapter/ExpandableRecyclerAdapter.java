@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 import com.example.s.allgoalstest.R;
 import com.example.s.allgoalstest.pojo.Events;
 import com.thoughtbot.expandablerecyclerview.ExpandableRecyclerViewAdapter;
@@ -12,14 +13,12 @@ import com.thoughtbot.expandablerecyclerview.models.ExpandableGroup;
 import java.util.List;
 
 public class ExpandableRecyclerAdapter extends ExpandableRecyclerViewAdapter<LeagueViewHolder, EventViewHolder> {
-
     private Context context;
 
     public ExpandableRecyclerAdapter(Context context, List<? extends ExpandableGroup> groups) {
         super(groups);
         this.context = context;
     }
-
 
     @Override
     public LeagueViewHolder onCreateGroupViewHolder(ViewGroup parent, int viewType) {
@@ -44,5 +43,12 @@ public class ExpandableRecyclerAdapter extends ExpandableRecyclerViewAdapter<Lea
     @Override
     public void onBindGroupViewHolder(LeagueViewHolder holder, int flatPosition, ExpandableGroup group) {
         holder.setLeagueTitle(group);
+    }
+
+
+    public void expandGroups() {
+        for (int i = this.getGroups().size() - 1; i >= 0; i--) {
+            this.toggleGroup(i);
+        }
     }
 }
