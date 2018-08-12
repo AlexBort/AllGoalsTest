@@ -28,11 +28,8 @@ public class DownloadDataTask {
 
     private static class AsyncJson extends AsyncTask<Object, Object, String> {
 
-        public static final String nameFile = "file.json";
         private static final String TAG = "AsyncJson";
-
         String url = "https://97455d02-e6ab-42da-8ae7-bc5178f5c7c7.mock.pstmn.io/scores";
-
 
         @Override
         protected String doInBackground(Object[] objects) {
@@ -63,22 +60,6 @@ public class DownloadDataTask {
             }
             return jsonInString;
         }
-
-        private String parseJsonUntilObject(String jsonInString) {
-            try {
-                JSONObject object = new JSONObject(jsonInString);
-                JSONObject response = object.getJSONObject("response");
-                JSONObject items = response.getJSONObject("items");
-                String result = items.getString("Overview");
-                Log.e(TAG, "parseJsonUntilObject: " + result);
-                return result;
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return jsonInString;
-        }
-
-
 
     }
 

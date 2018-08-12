@@ -11,7 +11,7 @@ public class Events implements Parcelable {
 
 
     private String id;
-    private Participants participants;
+    private List<Participants> participantsList;
 
     public List<Participants> getParticipantsList() {
         return participantsList;
@@ -21,8 +21,6 @@ public class Events implements Parcelable {
         this.participantsList = participantsList;
     }
 
-    private List<Participants> participantsList;
-
 
     public Events(String id, List<Participants> participantsList) {
         this.id = id;
@@ -31,10 +29,6 @@ public class Events implements Parcelable {
 
     public String getId() {
         return id;
-    }
-
-    public Participants getParticipants() {
-        return participants;
     }
 
 

@@ -7,43 +7,16 @@ import java.util.List;
 
 public interface Mvp {
 
-
     interface MainView {
-        void showDataInTextView();
-
-        void showLog(String textLog);
-
-        void showDataInTextView(String str);
-
-        void viewListLeague(List<ExpandableItemGroup> leagues);
+        void showListLeague(List<ExpandableItemGroup> leagues);
     }
 
     interface MainRepository {
-
-        //       List<League> getListWithObject();
-
-        // void setList();
-        //    JSONArray asyncJsonInString();
-
-        // List<League> getListWithObject(JSONArray jsonArray);
-        //    List<League> getListWithObject();
-
-        String dataInString();
-
-        List<League> getTestLeagueList();
-
-        //   List<League> getLeagueList();
-
+        String getDataInString();
         List<ExpandableItemGroup> getItemGroup();
-        //  List<League> getFullList();
-        //   List<League> presentLeagueList();
     }
 
     interface MainPresenter {
-        void presentAllData();
-
-        void testGetFieldsLeague();
-
         void presentLeagueList();
     }
 }

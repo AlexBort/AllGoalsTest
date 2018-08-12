@@ -4,15 +4,12 @@ import android.util.Log;
 
 import com.example.s.allgoalstest.Mvp;
 import com.example.s.allgoalstest.adapter.ExpandableItemGroup;
-import com.example.s.allgoalstest.data.DownloadDataTask;
 import com.example.s.allgoalstest.pojo.Events;
 import com.example.s.allgoalstest.pojo.League;
 import com.example.s.allgoalstest.pojo.Participants;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,7 +20,7 @@ public class MainRepositoryImpl implements Mvp.MainRepository {
 
     // prepared JSON!
     @Override
-    public String dataInString() {
+    public String getDataInString() {
         DownloadDataTask downloadDataTask = new DownloadDataTask();
         String result = downloadDataTask.executeInBackGround();
         Log.e(TAG, "method: " + result);
@@ -32,27 +29,11 @@ public class MainRepositoryImpl implements Mvp.MainRepository {
 
     private JSONArray stringIntoLeagueJsonArray() {
         try {
-            return new JSONArray(dataInString());
+            return new JSONArray(getDataInString());
         } catch (JSONException e) {
             e.printStackTrace();
         }
         return null;
-    }
-
-    @Override
-    public List<League> getTestLeagueList() {
-        List<League> leagues = new ArrayList<>();
-        JSONArray jsonArray = stringIntoLeagueJsonArray();
-        for (int i = 0; i < jsonArray.length(); i++) {
-            try {
-                JSONObject jsonObject = jsonArray.getJSONObject(i);
-                League league = getTestLeagueFields(jsonObject);
-                leagues.add(league);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        }
-        return leagues;
     }
 
 
@@ -75,19 +56,14 @@ public class MainRepositoryImpl implements Mvp.MainRepository {
     public List<ExpandableItemGroup> getItemGroup() {
         List<League> leagues = getLeagueList();
         List<ExpandableItemGroup> listItems = new ArrayList<>();
-        // TODO: 12.08.2018 вот эти трансформации надо будет сделать в репозитории
         for (int i = 0; i < leagues.size(); i++) {
-            ExpandableItemGroup expandableItemGroup = new ExpandableItemGroup(leagues.get(i).getName(), leagues.get(i).getEventsList());
+            ExpandableItemGroup expandableItemGroup =
+                    new ExpandableItemGroup(leagues.get(i).getName(), leagues.get(i).getEventsList());
             listItems.add(expandableItemGroup);
         }
         return listItems;
     }
 
-
-    private League getTestLeagueFields(JSONObject jsonObject) throws JSONException {
-        return new League(jsonObject.getString("id"),
-                jsonObject.getString("name"));
-    }
 
     private Events getEventFields(JSONObject jsonObject) {
         try {
@@ -160,4 +136,4 @@ public class MainRepositoryImpl implements Mvp.MainRepository {
     }
 
 
-} // end class
+}

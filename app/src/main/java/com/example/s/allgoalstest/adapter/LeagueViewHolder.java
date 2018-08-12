@@ -17,32 +17,31 @@ public class LeagueViewHolder extends GroupViewHolder {
     private ImageView imageLeague;
     private ImageView imageArrow;
     private Context context;
+    private String urlImage = "http://ua.365.wiki/img/flags/128/ua.png";
+
 
     public LeagueViewHolder(View itemView, Context context) {
         super(itemView);
         this.context = context;
-        leagueTitle = itemView.findViewById(R.id.title_league); // TODO: 12.08.2018 поиграться еще с layout-ами
+        leagueTitle = itemView.findViewById(R.id.title_league);
         imageLeague = itemView.findViewById(R.id.image_league);
         imageArrow = itemView.findViewById(R.id.image_arrow);
     }
 
     public void setLeagueTitle(ExpandableGroup group) {
-        Picasso.get().load("http://ua.365.wiki/img/flags/128/ua.png").into(imageLeague);
+        Picasso.get().load(urlImage).into(imageLeague);
         leagueTitle.setText(group.getTitle());
     }
 
 
-    // TODO: 12.08.2018 я поменял порядок сеттинга стрелочек!!
     @Override
     public void expand() {
-     //   imageArrow.setBackground(context.getResources().getDrawable(R.drawable.ic_arrow_down));
         imageArrow.setBackground(context.getResources().getDrawable(R.drawable.ic_arrow_up));
     }
 
 
     @Override
     public void collapse() {
-   //     imageArrow.setBackground(context.getResources().getDrawable(R.drawable.ic_arrow_up));
         imageArrow.setBackground(context.getResources().getDrawable(R.drawable.ic_arrow_down));
     }
 }

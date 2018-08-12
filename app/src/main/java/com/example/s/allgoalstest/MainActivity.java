@@ -5,15 +5,11 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
-
 import com.example.s.allgoalstest.adapter.ExpandableItemGroup;
 import com.example.s.allgoalstest.adapter.ExpandableRecyclerAdapter;
 import com.example.s.allgoalstest.presenter.MainPresenterImpl;
-
 import java.util.List;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -27,15 +23,11 @@ public class MainActivity extends AppCompatActivity implements Mvp.MainView {
     private ExpandableRecyclerAdapter adapter;
     private MainPresenterImpl mainPresenter;
 
-//    @BindView(R.id.title_main)
-//    TextView textView;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-
 
         setSupportActionBar(toolbar);
         toolbar.setTitle("Все");
@@ -43,8 +35,6 @@ public class MainActivity extends AppCompatActivity implements Mvp.MainView {
         toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.ic_menu));
 
         mainPresenter = new MainPresenterImpl(this);
-        //  mainPresenter.presentAllData();
-        //  mainPresenter.testGetFieldsLeague();
         mainPresenter.presentLeagueList();
 
     }
@@ -56,25 +46,9 @@ public class MainActivity extends AppCompatActivity implements Mvp.MainView {
     }
 
     @Override
-    public void showDataInTextView() {
-
-    }
-
-    @Override
-    public void showLog(String textLog) {
-        Log.e(TAG, "showLog: " + textLog);
-    }
-
-    @Override
-    public void showDataInTextView(String str) {
-//        textView.setText(str);
-    }
-
-    @Override
-    public void viewListLeague(List<ExpandableItemGroup> expandableItemGroups) {
+    public void showListLeague(List<ExpandableItemGroup> expandableItemGroups) {
         adapter = new ExpandableRecyclerAdapter(this, expandableItemGroups);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
-
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
     }

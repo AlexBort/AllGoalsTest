@@ -2,15 +2,10 @@
 <resources>
 
     <color name="colorPrimary">#5ba363</color>
-    <!--old color #3F51B5-->
-
     <color name="colorPrimaryDark">#5ba363</color>
-    <!--old color #303F9F-->
-
     <color name="colorAccent">#FF4081</color>
     <color name="green">#5ba363</color>
     <color name="white">#ffffff</color>
     <color name="black">#000000</color>
     <color name="dark_green">#006400</color>
-    <!--#006400-->
 </resources>

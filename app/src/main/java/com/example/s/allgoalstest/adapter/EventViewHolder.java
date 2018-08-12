@@ -3,12 +3,10 @@ package com.example.s.allgoalstest.adapter;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.example.s.allgoalstest.R;
 import com.example.s.allgoalstest.pojo.Events;
 import com.squareup.picasso.Picasso;
 import com.thoughtbot.expandablerecyclerview.viewholders.ChildViewHolder;
-import com.thoughtbot.expandablerecyclerview.viewholders.GroupViewHolder;
 
 public class EventViewHolder extends ChildViewHolder {
 
@@ -22,7 +20,7 @@ public class EventViewHolder extends ChildViewHolder {
 
     public EventViewHolder(View itemView) {
         super(itemView);
-        nameFirstParticip = itemView.findViewById(R.id.title_team_1);// TODO: 12.08.2018 ДОБАВИТЬ СЮДА ТОЖЕ id
+        nameFirstParticip = itemView.findViewById(R.id.title_team_1);
         nameSecondParticip = itemView.findViewById(R.id.title_team_2);
         imageFirst = itemView.findViewById(R.id.image_1);
         imageSecond = itemView.findViewById(R.id.image_2);
@@ -35,7 +33,6 @@ public class EventViewHolder extends ChildViewHolder {
         nameFirstParticip.setText(events.getParticipantsList().get(0).getName());
         nameSecondParticip.setText(events.getParticipantsList().get(1).getName());
         Picasso.get().load(urlImage).into(imageFirst);
-
         Picasso.get().load(urlImage).into(imageSecond);
         goalsFirstTeam.setText(events.getParticipantsList().get(0).getGoals());
         goalsSecondTeam.setText(events.getParticipantsList().get(1).getGoals());
