@@ -3,7 +3,7 @@ package com.example.s.allgoalstest.repository;
 import android.util.Log;
 
 import com.example.s.allgoalstest.Mvp;
-import com.example.s.allgoalstest.adapter.ItemGroup;
+import com.example.s.allgoalstest.adapter.ExpandableItemGroup;
 import com.example.s.allgoalstest.api.DownloadDataTask;
 import com.example.s.allgoalstest.pojo.Events;
 import com.example.s.allgoalstest.pojo.League;
@@ -72,13 +72,13 @@ public class MainRepositoryImpl implements Mvp.MainRepository {
     }
 
     // adapted data for expandableRecycler
-    public List<ItemGroup> getItemGroup() {
+    public List<ExpandableItemGroup> getItemGroup() {
         List<League> leagues = getLeagueList();
-        List<ItemGroup> listItems = new ArrayList<>();
+        List<ExpandableItemGroup> listItems = new ArrayList<>();
         // TODO: 12.08.2018 вот эти трансформации надо будет сделать в репозитории
         for (int i = 0; i < leagues.size(); i++) {
-            ItemGroup itemGroup = new ItemGroup(leagues.get(i).getName(), leagues.get(i).getEventsList());
-            listItems.add(itemGroup);
+            ExpandableItemGroup expandableItemGroup = new ExpandableItemGroup(leagues.get(i).getName(), leagues.get(i).getEventsList());
+            listItems.add(expandableItemGroup);
         }
         return listItems;
     }

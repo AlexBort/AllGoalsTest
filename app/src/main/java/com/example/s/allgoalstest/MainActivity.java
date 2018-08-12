@@ -8,13 +8,11 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 
-import com.example.s.allgoalstest.adapter.ItemGroup;
+import com.example.s.allgoalstest.adapter.ExpandableItemGroup;
 import com.example.s.allgoalstest.adapter.ExpandableRecyclerAdapter;
 import com.example.s.allgoalstest.adapter.RecyclerAdapter;
-import com.example.s.allgoalstest.pojo.League;
 import com.example.s.allgoalstest.presenter.MainPresenterImpl;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -27,7 +25,7 @@ public class MainActivity extends AppCompatActivity implements Mvp.MainView {
     Toolbar toolbar;
     @BindView(R.id.recycler_view)
     RecyclerView recyclerView;
-    private RecyclerAdapter adapter;
+    private ExpandableRecyclerAdapter adapter;
     private MainPresenterImpl mainPresenter;
 
 //    @BindView(R.id.title_main)
@@ -77,15 +75,25 @@ public class MainActivity extends AppCompatActivity implements Mvp.MainView {
     }
 
     @Override
-    public void viewListLeague(List<ItemGroup> itemGroups) {
-        ExpandableRecyclerAdapter adapter = new ExpandableRecyclerAdapter(itemGroups);
+    public void viewListLeague(List<ExpandableItemGroup> expandableItemGroups) {
+        adapter = new ExpandableRecyclerAdapter(expandableItemGroups);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
 
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
     }
 
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        adapter.onRestoreInstanceState(savedInstanceState);
+    }
 
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        adapter.onSaveInstanceState(outState);
+    }
 } // MainActivity end
 
 

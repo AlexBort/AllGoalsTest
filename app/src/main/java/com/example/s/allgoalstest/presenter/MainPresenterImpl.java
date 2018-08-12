@@ -3,11 +3,10 @@ package com.example.s.allgoalstest.presenter;
 import android.util.Log;
 
 import com.example.s.allgoalstest.Mvp;
-import com.example.s.allgoalstest.adapter.ItemGroup;
+import com.example.s.allgoalstest.adapter.ExpandableItemGroup;
 import com.example.s.allgoalstest.pojo.League;
 import com.example.s.allgoalstest.repository.MainRepositoryImpl;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class MainPresenterImpl implements Mvp.MainPresenter {
@@ -41,7 +40,7 @@ public class MainPresenterImpl implements Mvp.MainPresenter {
 
     @Override
     public void presentLeagueList() {
-        List<ItemGroup> listItems = repository.getItemGroup();
+        List<ExpandableItemGroup> listItems = repository.getItemGroup();
 
         mainView.viewListLeague(listItems);
 //        for (int i = 0; i < leagues.size(); i++) {

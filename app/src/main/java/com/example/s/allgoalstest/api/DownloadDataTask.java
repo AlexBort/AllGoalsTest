@@ -49,6 +49,20 @@ public class DownloadDataTask {
             return null;
         }
 
+        private String parseJson(String jsonInString) {
+            try {
+                JSONObject object = new JSONObject(jsonInString);
+                JSONObject response = object.getJSONObject("response");
+                JSONObject items = response.getJSONObject("items");
+                JSONObject overview = items.getJSONObject("Overview");
+                String result = overview.getString("leagues");
+                Log.e(TAG, "parseJsonUntilObject: " + result);
+                return result;
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return jsonInString;
+        }
 
         private String parseJsonUntilObject(String jsonInString) {
             try {
@@ -64,20 +78,7 @@ public class DownloadDataTask {
             return jsonInString;
         }
 
-        private String parseJson(String jsonInString) {
-            try {
-                JSONObject object = new JSONObject(jsonInString);
-                JSONObject response = object.getJSONObject("response");
-                JSONObject items = response.getJSONObject("items");
-                JSONObject overview = items.getJSONObject("Overview");
-                String result = overview.getString("leagues");
-                Log.e(TAG, "parseJsonUntilObject: " + result);
-                return result;
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return jsonInString;
-        }
+
 
     }
 

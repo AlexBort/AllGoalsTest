@@ -1,10 +1,7 @@
 package com.example.s.allgoalstest;
 
-import com.example.s.allgoalstest.adapter.ItemGroup;
+import com.example.s.allgoalstest.adapter.ExpandableItemGroup;
 import com.example.s.allgoalstest.pojo.League;
-
-import org.json.JSONArray;
-import org.json.JSONException;
 
 import java.util.List;
 
@@ -18,7 +15,7 @@ public interface Mvp {
 
         void showDataInTextView(String str);
 
-        void viewListLeague(List<ItemGroup> leagues);
+        void viewListLeague(List<ExpandableItemGroup> leagues);
     }
 
     interface MainRepository {
@@ -37,7 +34,7 @@ public interface Mvp {
 
         //   List<League> getLeagueList();
 
-        List<ItemGroup> getItemGroup();
+        List<ExpandableItemGroup> getItemGroup();
         //  List<League> getFullList();
         //   List<League> presentLeagueList();
     }
