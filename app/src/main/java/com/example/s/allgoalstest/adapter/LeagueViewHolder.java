@@ -1,11 +1,11 @@
 package com.example.s.allgoalstest.adapter;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.s.allgoalstest.Urls;
 import com.example.s.allgoalstest.R;
 import com.squareup.picasso.Picasso;
 import com.thoughtbot.expandablerecyclerview.models.ExpandableGroup;
@@ -17,7 +17,6 @@ public class LeagueViewHolder extends GroupViewHolder {
     private ImageView imageLeague;
     private ImageView imageArrow;
     private Context context;
-    private String urlImage = "http://ua.365.wiki/img/flags/128/ua.png";
 
 
     public LeagueViewHolder(View itemView, Context context) {
@@ -29,7 +28,7 @@ public class LeagueViewHolder extends GroupViewHolder {
     }
 
     public void setLeagueTitle(ExpandableGroup group) {
-        Picasso.get().load(urlImage).into(imageLeague);
+        Picasso.get().load(Urls.URL_LEAGUE_IMAGE).into(imageLeague);
         leagueTitle.setText(group.getTitle());
     }
 

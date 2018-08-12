@@ -25,8 +25,7 @@ public class MainActivity extends AppCompatActivity implements Mvp.MainView {
 
 
     private static final String TAG = "MainActivity";
-    @BindView(R.id.progress)
-    ProgressBar progressBar;
+
     @BindView(R.id.toolbar)
     Toolbar toolbar;
     @BindView(R.id.recycler_view)
@@ -66,15 +65,6 @@ public class MainActivity extends AppCompatActivity implements Mvp.MainView {
         recyclerView.setAdapter(adapter);
     }
 
-    @Override
-    public void startProgress() {
-        progressBar.setVisibility(View.VISIBLE);
-    }
-
-    @Override
-    public void stopProgress() {
-        progressBar.setVisibility(View.GONE);
-    }
 
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {

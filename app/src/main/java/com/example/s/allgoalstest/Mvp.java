@@ -9,12 +9,11 @@ public interface Mvp {
 
     interface MainView {
         void showListLeague(List<ExpandableItemGroup> leagues);
-        void startProgress();
-        void stopProgress();
     }
 
     interface MainRepository {
         String getDataInString();
+
         List<ExpandableItemGroup> getItemGroup();
     }
 

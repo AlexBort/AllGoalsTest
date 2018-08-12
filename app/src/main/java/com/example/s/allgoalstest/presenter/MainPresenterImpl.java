@@ -20,10 +20,8 @@ public class MainPresenterImpl implements Mvp.MainPresenter {
 
     @Override
     public void presentLeagueList() {
-        mainView.startProgress();
         List<ExpandableItemGroup> listItems = repository.getItemGroup();
         mainView.showListLeague(listItems);
-        mainView.stopProgress();
     }
 
 

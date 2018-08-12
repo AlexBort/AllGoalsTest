@@ -3,6 +3,8 @@ package com.example.s.allgoalstest.data;
 import android.os.AsyncTask;
 import android.util.Log;
 
+import com.example.s.allgoalstest.Urls;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.jsoup.Jsoup;
@@ -29,13 +31,13 @@ public class DownloadDataTask {
     private static class AsyncJson extends AsyncTask<Object, Object, String> {
 
         private static final String TAG = "AsyncJson";
-        String url = "https://97455d02-e6ab-42da-8ae7-bc5178f5c7c7.mock.pstmn.io/scores";
+
 
         @Override
         protected String doInBackground(Object[] objects) {
 
             try {
-                String json = Jsoup.connect(url)/*.ignoreContentType(true)*/.execute().body();
+                String json = Jsoup.connect(Urls.URL_DATA)/*.ignoreContentType(true)*/.execute().body();
 
                 return parseJson(json);
 
