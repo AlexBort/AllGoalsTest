@@ -17,7 +17,7 @@ public interface Mvp {
 
         void showDataInTextView(String str);
 
-        void presentListLeague();
+        void viewListLeague(List<League> leagues);
     }
 
     interface MainRepository {
@@ -45,6 +45,7 @@ public interface Mvp {
         void presentAllData();
 
         void testGetFieldsLeague();
+
         void presentLeagueList();
     }
 }

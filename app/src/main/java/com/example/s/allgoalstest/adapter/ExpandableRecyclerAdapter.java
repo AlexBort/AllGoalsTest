@@ -31,13 +31,14 @@ public class ExpandableRecyclerAdapter extends ExpandableRecyclerViewAdapter<Lea
 
     @Override
     public void onBindChildViewHolder(EventViewHolder holder, int flatPosition, ExpandableGroup group, int childIndex) {
-//        final Events artist = ((Events) group).getParticipantsList().get(childIndex);
-//        holder.setArtistName(artist.getName());
+        final Events events = (Events) group.getItems().get(childIndex);
+        holder.onBind(events);
+
 
     }
 
     @Override
     public void onBindGroupViewHolder(LeagueViewHolder holder, int flatPosition, ExpandableGroup group) {
-
+        holder.setLeagueTitle(group);
     }
 }

@@ -40,16 +40,18 @@ public class MainPresenterImpl implements Mvp.MainPresenter {
     @Override
     public void presentLeagueList() {
         List<League> leagues = repository.getLeagueList();
-        for (int i = 0; i < leagues.size(); i++) {
-            // Log.e(TAG, "presentLeagueList: checkLeague name: " + leagues.get(i).getName());
-            for (int j = 0; j < leagues.get(i).getEventsList().size(); j++) {
-                Log.e(TAG, "presentLeagueList: checkEvent: " + leagues.get(i).getEventsList().get(j).getId());
-                for (int k = 0; k < leagues.get(i).getEventsList().get(j).getParticipantsList().size(); k++) {
-                    Log.e(TAG, "presentLeagueList: checkParticipant" +
-                            leagues.get(i).getEventsList().get(j).getParticipantsList().get(k).getGoals());
-                }
-            }
-        }
+        mainView.viewListLeague(leagues);
+//        for (int i = 0; i < leagues.size(); i++) {
+//            // Log.e(TAG, "presentLeagueList: checkLeague name: " + leagues.get(i).getName());
+//            for (int j = 0; j < leagues.get(i).getEventsList().size(); j++) {
+//                Log.e(TAG, "presentLeagueList: checkEvent: " + leagues.get(i).getEventsList().get(j).getId());
+//                for (int k = 0; k < leagues.get(i).getEventsList().get(j).getParticipantsList().size(); k++) {
+//                    Log.e(TAG, "presentLeagueList: checkParticipant" +
+//                            leagues.get(i).getEventsList().get(j).getParticipantsList().get(k).getGoals());
+//                }
+//            }
+//        }
+
     }
 
 

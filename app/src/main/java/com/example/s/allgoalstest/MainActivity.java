@@ -2,13 +2,19 @@ package com.example.s.allgoalstest;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.widget.TextView;
 
+import com.example.s.allgoalstest.adapter.ExpandableRecyclerAdapter;
 import com.example.s.allgoalstest.adapter.RecyclerAdapter;
+import com.example.s.allgoalstest.pojo.League;
 import com.example.s.allgoalstest.presenter.MainPresenterImpl;
+
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -18,8 +24,8 @@ public class MainActivity extends AppCompatActivity implements Mvp.MainView {
     private static final String TAG = "MainActivity";
     @BindView(R.id.toolbar)
     Toolbar toolbar;
-    //    @BindView(R.id.recycler_view)
-//    RecyclerView recyclerView;
+    @BindView(R.id.recycler_view)
+    RecyclerView recyclerView;
     private RecyclerAdapter adapter;
     private MainPresenterImpl mainPresenter;
 
@@ -29,7 +35,7 @@ public class MainActivity extends AppCompatActivity implements Mvp.MainView {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
+        setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
 
@@ -39,8 +45,8 @@ public class MainActivity extends AppCompatActivity implements Mvp.MainView {
         toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.ic_menu));
 
         mainPresenter = new MainPresenterImpl(this);
-      //  mainPresenter.presentAllData();
-      //  mainPresenter.testGetFieldsLeague();
+        //  mainPresenter.presentAllData();
+        //  mainPresenter.testGetFieldsLeague();
         mainPresenter.presentLeagueList();
 
     }
@@ -70,9 +76,14 @@ public class MainActivity extends AppCompatActivity implements Mvp.MainView {
     }
 
     @Override
-    public void presentListLeague() {
+    public void viewListLeague(List<League> leagues) {
+        ExpandableRecyclerAdapter adapter = new ExpandableRecyclerAdapter(leagues);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
 
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setAdapter(adapter);
     }
+
 
 } // MainActivity end
 
